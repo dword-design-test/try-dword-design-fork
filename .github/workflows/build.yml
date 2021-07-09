@@ -9,7 +9,7 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node }}
-      - run: yarn --frozen-lockfile
+      - run: npm ci
 name: build
 on:
   pull_request: {}
