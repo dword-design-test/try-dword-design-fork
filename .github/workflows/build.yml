@@ -1,0 +1,18 @@
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          lfs: true
+      - uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node }}
+      - run: yarn --frozen-lockfile
+name: build
+on:
+  pull_request: {}
+  push:
+    branches:
+      - master
